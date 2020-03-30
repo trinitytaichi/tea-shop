@@ -14,32 +14,34 @@ import '../styles/jc/checkout.scss'
 import { number } from 'yup'
 
 function Checkout() {
-
-  const teststr = JSON.stringify([{
-    title: "有機蜜韻紅茶補充包80g(手採)",
-    tag: "紅茶",
-    classIfy: "",
-    price: "490",
-    unit: "",
-    sTime: "2",
-    idVendor: "tunlo",
-    feaTure: "",
-    img: "150327607526.jpg",
-    id: 2,
-    amount: 5
-  },{
-    title: "有機蜜韻紅茶補充包80g(手採)",
-    tag: "紅茶",
-    classIfy: "",
-    price: "490",
-    unit: "",
-    sTime: "2",
-    idVendor: "tunlo",
-    feaTure: "",
-    img: "150327607526.jpg",
-    id: 2,
-    amount: 5
-  }])
+  const teststr = JSON.stringify([
+    {
+      title: '有機蜜韻紅茶補充包80g(手採)',
+      tag: '紅茶',
+      classIfy: '',
+      price: '490',
+      unit: '',
+      sTime: '2',
+      idVendor: 'tunlo',
+      feaTure: '',
+      img: '150327607526.jpg',
+      id: 2,
+      amount: 5,
+    },
+    {
+      title: '有機蜜韻紅茶補充包80g(手採)',
+      tag: '紅茶',
+      classIfy: '',
+      price: '490',
+      unit: '',
+      sTime: '2',
+      idVendor: 'tunlo',
+      feaTure: '',
+      img: '150327607526.jpg',
+      id: 2,
+      amount: 5,
+    },
+  ])
 
   localStorage.setItem('cart', teststr)
   const localCart = JSON.parse(localStorage.getItem('cart'))
@@ -52,7 +54,6 @@ function Checkout() {
     }
     return totalPrice
   }
-
 
   const productli = (
     <>
@@ -73,8 +74,8 @@ function Checkout() {
           </tr>
         )
       })}
-    </>)
-
+    </>
+  )
 
   return (
     <div className="container">
@@ -84,7 +85,7 @@ function Checkout() {
             <div className="timeline-small-body">
               <ul>
                 <li>
-                  <div className="bullet pink orange"></div>
+                  <div className="bullet norange"></div>
                   <div className="desc">
                     <h3>結帳</h3>
                   </div>
@@ -96,16 +97,14 @@ function Checkout() {
                   </div>
                 </li>
                 <li>
-                  <div className="bullet blue"></div>
+                  <div className="bullet orange"></div>
                   <div className="desc">
                     <h3>完成訂單</h3>
                   </div>
                 </li>
-
               </ul>
             </div>
           </div>
-
         </Col>
         <Col sm={8}>
           <h1 className="h123">結帳</h1>
@@ -123,9 +122,7 @@ function Checkout() {
                 <th>刪除</th>
               </tr>
             </thead>
-            <tbody>
-              {productli}
-            </tbody>
+            <tbody>{productli}</tbody>
             <tfoot></tfoot>
           </Table>
         </Col>
