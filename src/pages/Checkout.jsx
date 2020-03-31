@@ -136,27 +136,34 @@ function Checkout() {
   const data = [
     {
       id: 2,
-      coupon_code: 'PRW2',
-      discount: 222,
+      coupon_code: 'PRWCODE2',
+      discount: 200,
       status: 'Valid',
     },
     {
       id: 3,
-      coupon_code: 'PRW3',
-      discount: 333,
+      coupon_code: 'PRWCODE3',
+      discount: 300,
       status: 'Valid',
     },
     {
       id: 4,
-      coupon_code: 'PRW4',
-      discount: 444,
+      coupon_code: 'PRWCODE4',
+      discount: 400,
       status: 'Valid',
     },
 
     {
       id: 5,
-      coupon_code: 'PRW5',
-      discount: 555,
+      coupon_code: 'PRWCODE5',
+      discount: 500,
+      status: 'Valid',
+    },
+
+    {
+      id: 6,
+      coupon_code: 'PRWCODE6',
+      discount: 600,
       status: 'Valid',
     },
   ]
@@ -282,15 +289,15 @@ function Checkout() {
       </div>
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>檢視優惠券</Modal.Title>
         </Modal.Header>
         <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Close
+            離開
           </Button>
           <Button variant="primary" onClick={handleClose}>
-            Save Changes
+            選擇
           </Button>
         </Modal.Footer>
       </Modal>
