@@ -69,7 +69,7 @@ function OrderComplete() {
           <h1 className="h123">完成訂單</h1>
           <Form>
             <h5>已經完成訂購，可以前往訂單查詢</h5>
-            <h4 className="h4form">訂購人資料</h4>
+            {/* <h4 className="h4form">訂購人資料</h4>
             <Form.Group as={Row} controlId="formHorizontalName">
               <Form.Label column sm={2}>
                 姓名
@@ -141,10 +141,10 @@ function OrderComplete() {
                 name="formHorizontalRadios"
                 id="formHorizontalRadios2"
               />
-            </Form.Group>
+            </Form.Group> */}
             <Form.Group as={Row} controlId="exampleForm.SelectCustom">
               <Link to="/">
-                <Button className="confirm" type="submit" size="10">
+                <Button className="confirm" type="submit" size="8">
                   {' '}
                   返回首頁{' '}
                 </Button>

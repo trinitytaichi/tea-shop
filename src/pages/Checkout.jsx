@@ -4,6 +4,7 @@ import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import { Link } from 'react-router-dom'
 // import { Timeline, Icon } from 'rsuite'
 // import 'rsuite/lib/styles/index.less'
 // import DropdownButton from 'react-bootstrap/DropdownButton'
@@ -251,9 +252,11 @@ function Checkout() {
             </Dropdown>
           </Col>
           <Col sm={2}>
-            <Button className="checkbtn " block>
-              <span>結帳</span>
-            </Button>
+            <Link to="/payinfo">
+              <Button className="checkbtn " block>
+                <span>結帳</span>
+              </Button>
+            </Link>
           </Col>
         </Row>
       </div>
