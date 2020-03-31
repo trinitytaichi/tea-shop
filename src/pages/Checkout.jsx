@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import { Link } from 'react-router-dom'
+import Modal from 'react-bootstrap/Modal'
 // import { Timeline, Icon } from 'rsuite'
 // import 'rsuite/lib/styles/index.less'
 // import DropdownButton from 'react-bootstrap/DropdownButton'
@@ -16,6 +17,9 @@ import { number } from 'yup'
 import { event } from 'd3'
 
 function Checkout() {
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
   const [amountPrice, setAmountPrice] = useState(0)
   const teststr = JSON.stringify([
     {
@@ -31,6 +35,7 @@ function Checkout() {
       id: 2,
       amount: 5,
     },
+
     {
       title: '有機蜜韻紅茶補充包80g(手採)',
       tag: '紅茶',
@@ -44,6 +49,21 @@ function Checkout() {
       id: 2,
       amount: 5,
     },
+
+    {
+      title: '有機蜜韻紅茶補充包80g(手採)',
+      tag: '紅茶',
+      classIfy: '',
+      price: '490',
+      unit: '',
+      sTime: '2',
+      idVendor: 'tunlo',
+      feaTure: '',
+      img: '150327607526.jpg',
+      id: 2,
+      amount: 5,
+    },
+
     {
       title: '有機蜜韻紅茶補充包80g(手採)',
       tag: '紅茶',
@@ -226,7 +246,7 @@ function Checkout() {
           <Col>優惠券</Col>
           <Col sm={3}>
             <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
+              <Dropdown.Toggle variant="success" id="dropdown-basic"  onClick={handleShow}>
                 請選擇優惠券代碼
               </Dropdown.Toggle>
 
@@ -260,7 +280,22 @@ function Checkout() {
           </Col>
         </Row>
       </div>
+      <Modal show={show} onHide={handleClose} animation={false}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   )
 }
+
 export default Checkout
