@@ -131,6 +131,13 @@ function Checkout() {
       discount: 444,
       status: 'Valid',
     },
+
+    {
+      id: 5,
+      coupon_code: 'PRW5',
+      discount: 555,
+      status: 'Valid',
+    },
   ]
 
   const getCoupon = id => {
@@ -201,10 +208,18 @@ function Checkout() {
           </Table>
         </Col>
       </Row>
-      <div className="calprice"> {amountPrice}</div>
+
+      <div className="calprice">
+        <Row>
+          <Col></Col>
+          <Col></Col>
+          <Col sm={2}>總金額</Col>
+          <Col sm={1}>{amountPrice}</Col>
+        </Row>
+      </div>
 
       <div>
-        <Row className="">
+        <Row className="couponrow">
           <Col></Col>
           <Col></Col>
           <Col>優惠券</Col>
