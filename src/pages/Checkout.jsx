@@ -253,7 +253,11 @@ function Checkout() {
           <Col>優惠券</Col>
           <Col sm={3}>
             <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic"  onClick={handleShow}>
+              <Dropdown.Toggle
+                variant="success"
+                id="dropdown-basic"
+                onClick={handleShow}
+              >
                 請選擇優惠券代碼
               </Dropdown.Toggle>
 
@@ -291,7 +295,25 @@ function Checkout() {
         <Modal.Header closeButton>
           <Modal.Title>檢視優惠券</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          {' '}
+          {data.map((value, index) => {
+            return (
+              <Dropdown.Item
+                onSelect={(eventKey, event) => {
+                  setAmountPrice(amountPrice - eventKey)
+                  console.log('fire on selected')
+                }}
+                eventKey={value.discount}
+              >
+                {value.coupon_code}
+              </Dropdown.Item>
+            )
+          })}
+          {/* <Dropdown.Item href="#/action-1">1</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">2 </Dropdown.Item>
+                <Dropdown.Item href="#/action-3">3</Dropdown.Item> */}
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             離開
@@ -304,5 +326,4 @@ function Checkout() {
     </div>
   )
 }
-
 export default Checkout
