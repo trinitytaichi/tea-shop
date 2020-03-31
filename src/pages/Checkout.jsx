@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 // import Navbar from "react-bootstrap/Navbar";
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
@@ -12,9 +12,24 @@ import Dropdown from 'react-bootstrap/Dropdown'
 // import{ BrowserRouter as Link} from "react-router-dom";
 import '../styles/jc/checkout.scss'
 import { number } from 'yup'
+import { event } from 'd3'
 
 function Checkout() {
+  const [amountPrice, setAmountPrice] = useState(0)
   const teststr = JSON.stringify([
+    {
+      title: '有機蜜韻紅茶補充包80g(手採)',
+      tag: '紅茶',
+      classIfy: '',
+      price: '490',
+      unit: '',
+      sTime: '2',
+      idVendor: 'tunlo',
+      feaTure: '',
+      img: '150327607526.jpg',
+      id: 2,
+      amount: 5,
+    },
     {
       title: '有機蜜韻紅茶補充包80g(手採)',
       tag: '紅茶',
@@ -76,6 +91,65 @@ function Checkout() {
       })}
     </>
   )
+  const totalPrice = localCart.reduce((acc, value, index) => {
+    return acc + value.price * value.amount
+  }, 0)
+  console.log('totalPrice', totalPrice)
+
+  useEffect(() => {
+    setAmountPrice(totalPrice)
+  }, [])
+
+  // function App() {
+  //   useEffect(() => {
+  //     initCounpon()
+  //   }, [])
+
+  //   return (
+  //     <>
+  //       <Button onClick={() => console.log(getCoupon(3))}>取得coupon</Button>
+  //     </>
+  //   )
+  // }
+
+  const data = [
+    {
+      id: 2,
+      coupon_code: 'PRW2',
+      discount: 222,
+      status: 'Valid',
+    },
+    {
+      id: 3,
+      coupon_code: 'PRW3',
+      discount: 333,
+      status: 'Valid',
+    },
+    {
+      id: 4,
+      coupon_code: 'PRW4',
+      discount: 444,
+      status: 'Valid',
+    },
+  ]
+
+  const getCoupon = id => {
+    const couponList = JSON.parse(localStorage.getItem('myCoupon'))
+
+    const couponFoundList = couponList.filter((v, i) => {
+      if (v.id === id) return v
+    })
+
+    return couponFoundList[0]
+  }
+
+  const getCouponList = () => {
+    return JSON.parse(localStorage.getItem('myCoupon'))
+  }
+
+  const initCounpon = () => {
+    localStorage.setItem('myCoupon', JSON.stringify(data))
+  }
 
   return (
     <div className="container">
@@ -127,7 +201,7 @@ function Checkout() {
           </Table>
         </Col>
       </Row>
-      <div></div>
+      <div className="calprice"> {amountPrice}</div>
 
       <div>
         <Row className="">
@@ -141,9 +215,23 @@ function Checkout() {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">1</Dropdown.Item>
+                {data.map((value, index) => {
+                  return (
+                    <Dropdown.Item
+                      onSelect={(eventKey, event) => {
+                        setAmountPrice(amountPrice - eventKey)
+                        console.log('fire on selected')
+                      }}
+                      eventKey={value.discount}
+                    >
+                      {value.coupon_code}
+                    </Dropdown.Item>
+                  )
+                })}
+
+                {/* <Dropdown.Item href="#/action-1">1</Dropdown.Item>
                 <Dropdown.Item href="#/action-2">2 </Dropdown.Item>
-                <Dropdown.Item href="#/action-3">3</Dropdown.Item>
+                <Dropdown.Item href="#/action-3">3</Dropdown.Item> */}
               </Dropdown.Menu>
             </Dropdown>
           </Col>
