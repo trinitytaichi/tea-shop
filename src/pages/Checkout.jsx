@@ -21,65 +21,7 @@ function Checkout() {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
   const [amountPrice, setAmountPrice] = useState(0)
-  const teststr = JSON.stringify([
-    {
-      title: '有機蜜韻紅茶補充包80g(手採)',
-      tag: '紅茶',
-      classIfy: '',
-      price: '490',
-      unit: '',
-      sTime: '2',
-      idVendor: 'tunlo',
-      feaTure: '',
-      img: '150327607526.jpg',
-      id: 2,
-      amount: 5,
-    },
 
-    {
-      title: '有機蜜韻紅茶補充包80g(手採)',
-      tag: '紅茶',
-      classIfy: '',
-      price: '490',
-      unit: '',
-      sTime: '2',
-      idVendor: 'tunlo',
-      feaTure: '',
-      img: '150327607526.jpg',
-      id: 2,
-      amount: 5,
-    },
-
-    {
-      title: '有機蜜韻紅茶補充包80g(手採)',
-      tag: '紅茶',
-      classIfy: '',
-      price: '490',
-      unit: '',
-      sTime: '2',
-      idVendor: 'tunlo',
-      feaTure: '',
-      img: '150327607526.jpg',
-      id: 2,
-      amount: 5,
-    },
-
-    {
-      title: '有機蜜韻紅茶補充包80g(手採)',
-      tag: '紅茶',
-      classIfy: '',
-      price: '490',
-      unit: '',
-      sTime: '2',
-      idVendor: 'tunlo',
-      feaTure: '',
-      img: '150327607526.jpg',
-      id: 2,
-      amount: 5,
-    },
-  ])
-
-  localStorage.setItem('cart', teststr)
   const localCart = JSON.parse(localStorage.getItem('cart'))
   console.log(localCart)
 
